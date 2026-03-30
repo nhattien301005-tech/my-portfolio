@@ -1,4 +1,20 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Portfolio của Nguyễn Văn A đã load xong!');
-    alert('Chào mừng bạn đến với portfolio của mình!');
+const spinner = document.getElementById('spinner');
+let angle = 0;
+let spinning = true;
+
+function rotate() {
+    if (spinning) {
+        angle += 1;
+        spinner.style.transform = `rotateY(${angle}deg)`;
+    }
+    requestAnimationFrame(rotate);
+}
+
+rotate();
+
+// Dừng khi hover vào hình
+const faces = document.querySelectorAll('.face');
+faces.forEach(face => {
+    face.addEventListener('mouseenter', () => spinning = false);
+    face.addEventListener('mouseleave', () => spinning = true);
 });
