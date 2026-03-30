@@ -42,3 +42,23 @@ body {
 .face:nth-child(4) { transform: rotateY(180deg) translateZ(150px); }
 .face:nth-child(5) { transform: rotateY(240deg) translateZ(150px); }
 .face:nth-child(6) { transform: rotateY(300deg) translateZ(150px); }
+const spinner = document.getElementById('spinner');
+let angle = 0;
+let spinning = true;
+
+function rotate() {
+    if (spinning) {
+        angle += 1;
+        spinner.style.transform = `rotateY(${angle}deg)`;
+    }
+    requestAnimationFrame(rotate);
+}
+
+rotate();
+
+// Dừng khi hover vào hình
+const faces = document.querySelectorAll('.face');
+faces.forEach(face => {
+    face.addEventListener('mouseenter', () => spinning = false);
+    face.addEventListener('mouseleave', () => spinning = true);
+});
