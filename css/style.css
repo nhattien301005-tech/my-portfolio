@@ -1,0 +1,30 @@
+body{
+font-family:Arial;
+padding:20px;
+}
+
+nav a{
+margin-right:20px;
+}
+
+#products{
+display:flex;
+flex-wrap:wrap;
+}
+
+.card{
+border:1px solid #ccc;
+padding:10px;
+margin:10px;
+}
+
+#timer{
+font-size:30px;
+color:red;
+}
+
+@media(max-width:600px){
+#products{
+flex-direction:column;
+}
+}
